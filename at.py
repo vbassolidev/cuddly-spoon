@@ -77,8 +77,13 @@ def menu():
         if opcao == '1':
             nome = input("Nome do experimento: ")
             complexidade = int(input("Complexidade do experimento (1 a 10): "))
-            agenda.adicionar_experimento(nome, complexidade)
-            print(f"Experimento '{nome}' adicionado com sucesso!")
+            if complexidade > 10 or complexidade < 1:
+                print("\n\n###################################\n")
+                print("   Digite um valor entre 1 e 10\n")
+                print("###################################")
+            else:        
+                agenda.adicionar_experimento(nome, complexidade)
+                print(f"Experimento '{nome}' adicionado com sucesso!")
 
         elif opcao == '2':
             nome = input("Nome do experimento a ser removido: ")
@@ -96,7 +101,7 @@ def menu():
 
         elif opcao == '4':
             print("\n#############################################")
-            print("\n           Agenda de experimentos:            ")
+            print("\n           Agenda de experimentos:            \n")
             agenda.exibir_agenda()
 
         elif opcao == '5':
