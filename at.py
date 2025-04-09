@@ -1,3 +1,4 @@
+from time import sleep
 class Experimento:
     def __init__(self, nome, complexidade):
         self.nome = nome
@@ -86,6 +87,7 @@ def menu():
                 print(f"Experimento '{nome}' adicionado com sucesso!")
 
         elif opcao == '2':
+            print("####################################\n")
             nome = input("Nome do experimento a ser removido: ")
             agenda.remover_experimento(nome)
 
@@ -93,6 +95,7 @@ def menu():
             complexidade_minima = int(input("Digite a complexidade mínima: "))
             resultados = agenda.buscar_experimento(complexidade_minima)
             if resultados:
+                print("####################################\n")
                 print("\nExperimentos encontrados:")
                 for exp in resultados:
                     print(exp)
@@ -106,6 +109,8 @@ def menu():
 
         elif opcao == '5':
             print("Saindo...")
+            sleep(1.5)
+            print("Agenda encerrada!")
             break
 
         else:
